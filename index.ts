@@ -1,8 +1,10 @@
-import { registerRootComponent } from 'expo';
+import { Appearance } from 'react-native'
 
-import App from './App';
+// Before this line runs, Expo's startup modules already imported react-native, which loaded
+// Uniwind's runtime. On a device in dark mode it captured "dark".
+// Forcing light here changes the scheme before Uniwind's config is constructed (in app/_layout).
+// On Android the same happens without this line, when the Activity reports light after the bundle
+// started evaluating.
+Appearance.setColorScheme('light')
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+require('expo-router/entry')

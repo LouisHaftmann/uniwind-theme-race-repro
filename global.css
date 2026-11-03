@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@import 'uniwind';
+
+@layer theme {
+  :root {
+    @variant light {
+      --color-surface: #ffffff;
+      --color-surface-foreground: #000000;
+    }
+    @variant dark {
+      --color-surface: #000000;
+      --color-surface-foreground: #ffffff;
+    }
+  }
+}
